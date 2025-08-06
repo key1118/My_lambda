@@ -12,7 +12,7 @@ phases:
 artifacts:
   files:
     - lambda_package.zip
-  base-directory: ./
+  base-directory: ./output
   discard-paths: yes
   s3:
-    bucket: mylambda20250806second
+    bucket: mylambda20250806
