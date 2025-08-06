@@ -6,15 +6,14 @@ phases:
       - echo "依存関係をインストールしています..."
       - pip install -r requirements.txt -t ./
       - pip install boto3 -t ./
+      - apt-get update && apt-get install -y awscli
   build:
     commands:
       - echo "Lambdaパッケージを作成中..."
       - zip -r lambda_package.zip ./*
       - ls 
-artifacts:
-  files:
-    - lambda_package.zip
-  base-directory: ./
-  discard-paths: yes
-  s3:
-    bucket: mylambda20250806
+  post_build:
+    commands:
+      - echo "S3バケットへの同期を開始します..."
+      - aws s3 sync --exact-timestamps ./ s3://mylambda20250806 --exclude "*" --include "lambda_package.zip"
+      - echo "同期完了！"
