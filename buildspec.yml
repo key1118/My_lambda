@@ -16,4 +16,4 @@ artifacts:
   discard-paths: yes
   s3:
     bucket: mylambda20250806
-    path: /artifacts
+    path: artifacts
