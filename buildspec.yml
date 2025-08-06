@@ -9,18 +9,10 @@ phases:
     commands:
       - echo "Lambdaパッケージを作成中..."
       - zip -r lambda_package.zip ./*
-  post_build:
-    commands:
-      - echo "GitHubに成果物をアップロードしています..."
-      - git init
-      - git remote add origin https://github.com/key1118/My_lambda.git
-      - git config user.name "key1118"
-      - git config user.email "your-email@example.com"
-      - git add lambda_package.zip
-      - git commit -m "Add lambda package artifact"
-      - git push origin main
 artifacts:
   files:
     - lambda_package.zip
   base-directory: ./
   discard-paths: yes
+  s3:
+    bucket: mylambda20250806
