@@ -12,3 +12,4 @@ phases:
 artifacts:
   files:
     - lambda_package.zip
+  base-directory: ./
