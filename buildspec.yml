@@ -17,5 +17,5 @@ phases:
   post_build:
     commands:
       - echo "S3バケットへの同期を開始します..."
-      - aws s3 sync --exact-timestamps ./ s3://mylambda20250806ddddddddddddddddddddddddddddddddddd --exclude "*" --include "lambda_package.zip"
+      - aws s3 sync --exact-timestamps ./ s3://mylambda20250806 --exclude "*" --include "lambda_package.zip"
       - echo "同期完了！"
