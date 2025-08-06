@@ -9,6 +9,7 @@ phases:
     commands:
       - echo "Lambdaパッケージを作成中..."
       - zip -r lambda_package.zip ./*
+      - ls 
 artifacts:
   files:
     - lambda_package.zip
