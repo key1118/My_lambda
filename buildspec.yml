@@ -5,6 +5,7 @@ phases:
     commands:
       - echo "依存関係をインストールしています..."
       - pip install -r requirements.txt -t ./
+      - pip install boto3 -t ./
   build:
     commands:
       - echo "Lambdaパッケージを作成中..."
