@@ -1,8 +1,7 @@
 import json
 import requests
 from bs4 import BeautifulSoup
-from dotenv import load_dotenv
-import os
+
 def get_summary_and_score(api_key, result_text):
     # 要約リクエストデータ
     request_body_summary = {
@@ -81,8 +80,7 @@ def lambda_handler(event, content):
 
     # フィルタされたテキストを1つに整形
     result_text = '\n'.join(content)
-    load_dotenv()
-    openai_key = os.getenv("OPENAI_API_KEY")
+    openai_key="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"
     summary, score = get_summary_and_score(openai_key, result_text)
     # 結果を返す
     return {
