@@ -80,7 +80,7 @@ def lambda_handler(event, content):
 
     # フィルタされたテキストを1つに整形
     result_text = '\n'.join(content)
-    openai_key= OPENAI_KEY
+    openai_key= "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"
     summary, score = get_summary_and_score(openai_key, result_text)
     # 結果を返す
     return {
